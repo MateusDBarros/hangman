@@ -7,8 +7,10 @@ int main(void)
 {
     srand(time(0));
     int random = rand() % 4;
-    char palavras[15] = {"banana", "carro", "arvore", "hospital"};
-    char palavra[] = palavras[random];
+    char* palavras[] = {"banana", "carro", "arvore", "hospital",
+                        "passaro", "elevador", "tigre", "homem", "mulher"};
+                        
+    char* palavra = palavras[random];
     int tamanho = strlen(palavra);
     char secreta[tamanho];
     int tentativas = 6;
