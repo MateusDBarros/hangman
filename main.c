@@ -4,22 +4,30 @@
 
 int main(void)
 {
-    char palavra[15] = {"banana"};
-    char adivinhada[15];
+    char palavra[15] = "banana";
+    int tamanho = strlen(palavra);
+    char secreta[tamanho];
     int tentativas = 6;
     char letra;
-    printf("Adivinhe qual a palavra!\n");
-    do {
-        printf("\nDigite uma letra: ");
-        scanf("%c", &letra);
-        for (int i = 0; i < 6; i++) {
-            if (letra == palavra[i]) {
-                adivinhada[i] = letra;
-                printf("%s", adivinhada);
-            }
-            else
-                adivinhada[i] = '_';
-        }
-    } while (tentativas != 0);
     
+    for (int i = 0; i < tamanho; i++) {
+        secreta[i] = '_';
+    }
+    secreta[tamanho] = '\0';
+
+    printf("%s", secreta);
+    printf("\n");
+    do {
+        printf("digite uma letra: ");
+        scanf(" %c", &letra);
+        getchar();
+        for (int i = 0; i < tamanho; i++) {
+            if (letra == palavra[i]) {
+                secreta[i] = palavra[i];
+            }
+        } 
+        printf("%s", secreta);
+        printf("\n");
+
+    }while (tentativas != 0);
 }
